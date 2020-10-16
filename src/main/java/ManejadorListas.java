@@ -22,4 +22,8 @@ public class ManejadorListas {
         automatas.add(result);
     }
     
+    public static ArrayList<Automata> arregloAutomatas(){
+        return  automatas;
+    }
+    
 }

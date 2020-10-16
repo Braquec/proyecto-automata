@@ -36,7 +36,8 @@ public class Principal {
                     letra = letra.trim();
                     
                     if(contador == 1){
-                        nombreAutomataFile = letra;
+                        nombreAutomataFile = letra; 
+                        automataArchivo.setNombre(letra);
                         if (ManejadorListas.obtenerAutomata(nombreAutomataFile) == null) {
                             automataArchivo.setNombre(nombreAutomataFile);
                             ManejadorListas.agregarAutomata(automataArchivo);
@@ -46,22 +47,36 @@ public class Principal {
                         automataArchivo = ManejadorListas.obtenerAutomata(nombreAutomataFile);
                     }else if(contador == 2) {
                         String[] detalleEstados = letra.split(",");
-                        automataArchivo.setEstados(detalleEstados);
+                        ManejadorListas.obtenerAutomata(automataArchivo.getNombre()).setEstados(detalleEstados);
                     }else if(contador == 4){
                         if(ManejadorListas.obtenerAutomata(letra) == null){
                             System.out.println("No existe este automata");
                         }
                     }else if(contador == 5){
                         String[] simbolos = letra.split(",");
-                        
-                        //automataArchivo.
+                        ManejadorListas.obtenerAutomata(automataArchivo.getNombre()).setSimbolos(simbolos);
+                    }else if(contador == 8){
+                        ManejadorListas.obtenerAutomata(automataArchivo.getNombre()).seteInicial(letra);
+                    }else if(contador == 11){
+                        ManejadorListas.obtenerAutomata(automataArchivo.getNombre()).seteFinal(letra);
+                    }else if(contador == 14){
+                        String[] transiciones = letra.split(";");
                     }
                     contador++;
-//                    Result res = new Result();
                 }
                 
             }
+            System.out.println("El archivo se ha cargado correctamente.");
             
+            
+            
+            
+            
+            System.out.println("Listado de automatas");
+            for (int i = 0; i < ManejadorListas.arregloAutomatas().size(); i++) {
+                System.out.println(ManejadorListas.arregloAutomatas().get(i).getNombre());
+                System.out.println(ManejadorListas.arregloAutomatas().get(i).getEstados()[i]);
+            }
             
         } catch (Exception e) {
         }
