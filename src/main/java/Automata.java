@@ -10,6 +10,7 @@
  */
 public class Automata {
     private String nombre;
+    private String[] estados;
     private String[] simbolos;
     private String eInicial;
     private String eFinal;
@@ -22,6 +23,15 @@ public class Automata {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
+
+    public String[] getEstados() {
+        return estados;
+    }
+
+    public void setEstados(String[] estados) {
+        this.estados = estados;
+    }
+    
 
     public String[] getSimbolos() {
         return simbolos;
@@ -63,5 +73,8 @@ public class Automata {
         this.transiciones = transiciones;
     }
     
+    public Automata(){
+        
+    }
     
 }
